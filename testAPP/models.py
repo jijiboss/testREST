@@ -6,4 +6,4 @@ class Product(models.Model):
     description = models.TextField()
 
     def __str__(self):
-        return '(' + self.prod_id + ')' + self.name + ' - ' + self.description
+        return '(' + str(self.prod_id) + ')' + self.name + ' - ' + self.description

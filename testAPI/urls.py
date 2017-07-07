@@ -9,4 +9,6 @@ urlpatterns = [
     url(r'^products/$', views.ProductList.as_view()),
 ]
 
-urlpatterns = format_suffix_patterns(urlpatterns)
+#http://www.django-rest-framework.org/api-guide/format-suffixes/
+#urlpatterns = format_suffix_patterns(urlpatterns)
+urlpatterns = format_suffix_patterns(urlpatterns, allowed = ['json', 'html', 'xml'])

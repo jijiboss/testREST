@@ -122,6 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATIC_URL = '/static/'
 
+#BASE_DIR is where the manage.py file is
 MEDIA_ROOT = os.path.join(BASE_DIR, 'csv_uploads')
 MEDIA_URL = '/csv_uploads/'
 

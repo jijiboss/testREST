@@ -24,8 +24,9 @@ from testAPP.models import Product
 data = csv.reader(open(settings.MEDIA_ROOT + "\products.csv"), delimiter=",")
 
 for row in data:
-    if row[0] != 'product_id':
+    if row[0] != 'prod_id':
         prods = Product()
+        #print('#######-----DEBUG-----###### ' + row[0])
         prods.prod_id = row[0]
         prods.name = row[1]
         prods.description = row[2]

@@ -1,0 +1,5 @@
+<form enctype="multipart/form-data" action="/upload/" name="upload_csv" method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input id="csvSubmit" type="submit" value="Upload">
+</form>

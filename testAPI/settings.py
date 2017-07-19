@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework', #You will get "template doe snot exist" error without this
     'rest_framework_xml', #You will get "template doe snot exist" error without this
-    'testAPP'
+    'testAPP', #my main app
+    'import_export', #to be able to upload data into the model using CSV
 ]
 
 MIDDLEWARE = [
@@ -134,3 +135,7 @@ REST_FRAMEWORK = {
         'rest_framework_xml.renderers.XMLRenderer',
     ),
 }
+
+ #for Django-Import-Export, so it uses transactions for rollbacks and stuff.
+ #http://django-import-export.readthedocs.io/en/latest/installation.html
+IMPORT_EXPORT_USE_TRANSACTIONS = True

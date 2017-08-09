@@ -7,7 +7,7 @@
 from import_export import resources #import django_import_export package
 from import_export import fields #To use with import_export in specifying the
 from import_export.widgets import ForeignKeyWidget
-from .models import Product, Order
+from .models import Product, Order, Load
 
 #Define the characteristics and behaviors of the ModelResource of Product model object
 class ProductResource(resources.ModelResource):
@@ -25,3 +25,8 @@ class OrderResource(resources.ModelResource):
         #The default field for object identification is id, you can optionally set which fields are used as the id when importing:
         import_id_fields = ('name', )
         import_order = ('order_id', 'name', 'qty')
+
+class LoadResource(resources.ModelResource):
+    class Meta:
+        model = Load
+        import_id_fields = ['time_stamp', 'load_number', 'container_num', 'latitude', 'longitude']

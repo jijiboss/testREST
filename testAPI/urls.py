@@ -7,6 +7,8 @@ from testAPP import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^products/$', views.ProductList.as_view()),
+    url(r'^train/$', views.tracking), #Test HTMl for mapping coordinates
+
 ]
 
 #http://www.django-rest-framework.org/api-guide/format-suffixes/

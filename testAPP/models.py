@@ -9,6 +9,9 @@ class Product(models.Model):
     def __str__(self):
         return '(' + str(self.prod_id) + ')' + self.name + ' - ' + self.description
 
+    class Meta:
+        verbose_name_plural = "Product"
+
 class Order(models.Model):
     order_id = models.CharField(max_length=12)
     name = models.ForeignKey(Product)
@@ -16,3 +19,14 @@ class Order(models.Model):
 
     def __str__(self):
         return '(' + str(self.order_id) + ')' + str(self.name) + ' - ' + str(self.qty)
+
+#Model that stores the coordinates so I can map them
+class Load(models.Model):
+    time_stamp = models.DateTimeField()
+    load_number = models.CharField(max_length=20)
+    container_num = models.CharField(max_length=12)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+
+    def __str__(self):
+        return str(self.container_num) + ' (' + str(self.load_number) + ')' + str(self.latitude) + ' - ' + str(self.longitude)

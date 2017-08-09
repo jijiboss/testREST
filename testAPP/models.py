@@ -29,4 +29,4 @@ class Load(models.Model):
     longitude = models.FloatField()
 
     def __str__(self):
-        return str(self.container_num) + ' (' + str(self.load_number) + ')' + str(self.latitude) + ' - ' + str(self.longitude)
+        return str(self.container_num) + ' (' + str(self.load_number) + '): ' + str(self.latitude) + ', ' + str(self.longitude)

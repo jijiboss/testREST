@@ -7,9 +7,15 @@ from .serializers import ProductSerializer
 
 #Test HTML for tracking
 def tracking(request):
-#    return render_to_response('testAPP/APITest.html')
     all_loads = Load.objects.all()
-    return render(request, 'testAPP/APITest.html', {'all_loads': all_loads})
+    myURL="https://maps.googleapis.com/maps/api/staticmap?center=39.8283,-98.5795&zoom=4&size=640x640&maptype=roadmap"
+
+    #append each coordinate to the URL to map
+    for load in all_loads:
+        myURL += "&markers=size:mid|label:" + str(load.pk) +"|" + str(load.latitude) + "," + str(load.longitude)
+    #Return the query result to display in the table and the URL to map
+    return render(request, 'testAPP/APITest.html', {'all_loads': all_loads, 'myURL':myURL})
+
 
 class ProductList(APIView):
 
@@ -18,7 +24,6 @@ class ProductList(APIView):
         serializer = ProductSerializer(prods, many=True) #tells there are multiple data
         return Response(serializer.data)
 
-#    def post(self):
 
 #Update for django-import-export
 from tablib import Dataset

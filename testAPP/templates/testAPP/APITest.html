@@ -1,7 +1,24 @@
 <html>
   <body>
-    <img src=
-      https://maps.googleapis.com/maps/api/staticmap?zoom=4&size=640x640&maptype=roadmap&markers=color:blue|label:G|27.676394,-99.461098&markers=color:green|label:S|35.17224,-86.964161
-      >
+    <img src={{myURL}}>
+      <div>
+        <table>
+          <tr>
+            <th>Load ID</th>
+            <th>Load Number</th>
+            <th>Container Number</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+          </tr>
+            {% for load in all_loads %}
+              <tr>
+                <td>{{load.pk}}</td>
+                <td>{{load.load_number}}</td>
+                <td>{{load.container_num}}</td>
+                <td>{{load.latitude}}</td>
+                <td>{{load.longitude}}</td>
+              </tr>
+            {% endfor %}
+      </div>
   </body>
 </html>
